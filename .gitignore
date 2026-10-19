@@ -1,6 +1,10 @@
 node_modules/
 tools/
 android_build/
+android_build_prod/
+android_build_test/
+temp_assets/
+release.keystore
 *.idsig
 .DS_Store
 *.log
