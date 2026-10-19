@@ -1,5 +1,7 @@
 node_modules/
 tools/
+android_build/
+*.idsig
 .DS_Store
 *.log
 *.tmp
