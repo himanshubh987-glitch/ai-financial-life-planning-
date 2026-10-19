@@ -1,5 +1,7 @@
 node_modules/
+tools/
 .DS_Store
 *.log
+*.tmp
 .vscode/
 .idea/
