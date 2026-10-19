@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@chromeos/android-package-signer": "^0.1.3"
+  }
+}

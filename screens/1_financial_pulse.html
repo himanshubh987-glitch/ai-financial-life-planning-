@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>LifePlan AI</title><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#f8f9ff;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-error": "#ffffff", "on-error-container": "#93000a", "growth-vibrant": "#10B981", "error": "#ba1a1a", "surface-canvas": "#F9F9FB", "surface-card-light": "#FFFFFF", "surface-container-high": "#dce9ff", "primary-fixed-dim": "#c2c6da", "on-surface-variant": "#46464c", "on-background": "#0b1c30", "surface-container-highest": "#d3e4fe", "surface": "#f8f9ff", "surface-container": "#e5eeff", "on-tertiary-container": "#7073ff", "surface-container-lowest": "#ffffff", "outline-variant": "#c6c6cc", "on-secondary": "#ffffff", "on-secondary-fixed": "#002113", "primary-fixed": "#dee2f6", "text-muted-dark": "#9CA3AF", "secondary-fixed": "#6ffbbe", "text-secondary-light": "#9CA3AF", "outline": "#76767d", "tertiary-container": "#07006c", "secondary-container": "#6cf8bb", "on-secondary-fixed-variant": "#005236", "inverse-primary": "#c2c6da", "text-secondary-dark": "#4B5563", "on-primary": "#ffffff", "surface-tint": "#595e6f", "inverse-on-surface": "#eaf1ff", "tertiary-fixed-dim": "#c0c1ff", "growth-deep": "#059669", "text-primary-dark": "#0A0F1D", "secondary-fixed-dim": "#4edea3", "growth-soft": "#34D399", "on-primary-container": "#7f8395", "secondary": "#006c49", "on-primary-fixed-variant": "#424657", "tertiary-fixed": "#e1e0ff", "on-surface": "#0b1c30", "tertiary": "#000000", "surface-container-low": "#eff4ff", "surface-variant": "#d3e4fe", "text-primary-light": "#F9FAFB", "on-primary-fixed": "#161b2a", "alert-amber": "#F59E0B", "growth-tint": "rgba(16, 185, 129, 0.08)", "border-subtle": "rgba(10, 15, 29, 0.06)", "surface-card-dark": "#0A0F1D", "primary-container": "#161b2a", "surface-card-dark-secondary": "#111827", "ai-violet": "#8B5CF6", "primary": "#000000", "on-secondary-container": "#00714d", "on-tertiary": "#ffffff", "border-dark-subtle": "rgba(255, 255, 255, 0.08)", "alert-amber-soft": "rgba(245, 158, 11, 0.10)", "background": "#f8f9ff", "inverse-surface": "#213145", "on-tertiary-fixed": "#07006c", "surface-muted": "#F3F4F6", "surface-bright": "#f8f9ff", "on-tertiary-fixed-variant": "#2f2ebe", "surface-dim": "#cbdbf5", "error-container": "#ffdad6" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-lg": "2rem", "gutter-sm": "1rem", "margin-desktop": "3rem", "space-xl": "2.5rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "gutter": "1.5rem", "margin": "2rem", "margin-mobile": "1rem", "space-sm": "0.5rem", "space-md": "1rem" }, "fontFamily": { "label-numeric-lg": ["JetBrains Mono"], "body-sm": ["Inter"], "body-md": ["Inter"], "body-xl": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "label-tag": ["Inter"], "display-hero-mobile": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "display-hero": ["Plus Jakarta Sans"], "label-numeric-md": ["JetBrains Mono"], "headline-lg": ["Plus Jakarta Sans"], "body-lg": ["Inter"] }, "fontSize": { "label-numeric-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.03em", "fontWeight": "600"}], "body-sm": ["13px", {"lineHeight": "18px", "letterSpacing": "0.005em", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}], "body-xl": ["18px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400"}], "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "label-tag": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}], "display-hero-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700"}], "headline-xl-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "headline-md": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.025em", "fontWeight": "600"}], "display-hero": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700"}], "label-numeric-md": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}], "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "400"}] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen selection:bg-growth-tint"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)] pt-safe"><div class="h-16 px-gutter-sm flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="LifePlan AI Brand Mark" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UnNhzJRUHWDyISrKtm9UntmjL43n9YZ4FNZRQNIAKUtoQ08N9L98Kv9f2kBtqnaOI0-uu0Qx774IrX6iyqf3cp_UeGirdKf1k3ikzuZy4OQUlTgN0PqRwq6GrzKLjdYCxJT_fMrR4_QWALdYFAFBFWJCkJu64uiFkAC0-iwS0XUukPQWJ0h6qu0_GN2Pk_nik8QuI_WVdiTicP8rIznIPR5JFDJjRtfAN-kx91wCY756ouGfQSFaNJEg"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight leading-none">LifePlan AI</span><span class="font-label-tag text-label-tag text-on-surface-variant font-medium uppercase tracking-wider mt-0.5">Financial Pulse</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Notifications" class="relative w-11 h-11 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-muted transition-colors active:scale-95"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-growth-vibrant ring-2 ring-surface"></span></button><button aria-label="User Profile" class="w-11 h-11 flex items-center justify-center rounded-full active:scale-95 transition-transform"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq_h77ALzHF7qQIzjBIwFxj7UScS-y402TaFM7ltgKYI4BG_AMjUfBi_1fJpBXV6J0rYsbvroCDSVDVH7NVXIYkMz1vHPqXJasP7WQ2e1pk8IdzXZF_FD-zfEjD1aNmvQitl2wxoNZM2sDB_YFdBFCH8e7UMnRLTxmX7ZxM7FpJ6bYySaGwTRp4VeAye547kdVrZTL2FhLW6dB13iLEY70AWiSEMMfiA2wGblr7HryX09Ln1_4CEs"/></button></div></div></header><main class="flex-1 w-full bg-surface pt-16 pb-24"><div class="flex flex-col w-full px-margin-mobile gap-space-lg pb-6">
+<!-- Greeting & Micro Status Banner -->
+<div class="flex items-center justify-between pt-2">
+<div class="flex flex-col">
+<span class="font-label-tag text-label-tag uppercase tracking-wider text-text-secondary-dark">Financial Pulse</span>
+<h1 class="font-headline-md text-headline-md text-text-primary-dark tracking-tight">Good morning, Aarav</h1>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-growth-tint text-growth-deep">
+<span class="w-2 h-2 rounded-full bg-growth-vibrant animate-pulse"></span>
+<span class="font-label-tag text-label-tag font-medium">Synced Today</span>
+</div>
+</div>
+<!-- Hero Card: Net Worth Spotlight (Dark Elevation Card) -->
+<section class="relative w-full rounded-xl bg-surface-card-dark text-text-primary-light p-space-md shadow-xl overflow-hidden">
+<!-- Ambient Luminous Gradient Mesh -->
+<div class="absolute -top-24 -right-24 w-60 h-60 rounded-full bg-ai-violet/20 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-20 -left-16 w-52 h-52 rounded-full bg-growth-vibrant/15 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-space-sm">
+<!-- Top Meta Row -->
+<div class="flex items-center justify-between">
+<span class="font-label-tag text-label-tag tracking-wider uppercase text-text-muted-dark">Consolidated Net Worth</span>
+<button aria-label="Toggle sensitive values" class="text-text-muted-dark hover:text-text-primary-light transition-colors active:scale-95" id="privacy-toggle">
+<span class="material-symbols-outlined text-[20px]" id="privacy-icon">visibility</span>
+</button>
+</div>
+<!-- Hero Value & Compounding delta -->
+<div class="flex flex-col">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl-mobile text-headline-xl-mobile text-text-primary-light tracking-tight font-bold" id="net-worth-val">₹58,42,500</span>
+</div>
+<div class="flex items-center gap-2 mt-1 flex-wrap">
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-growth-deep/20 text-growth-soft font-label-tag text-label-tag font-semibold">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+₹1,84,000 (3.2%)</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-muted-dark">vs last month</span>
+</div>
+</div>
+<!-- Interactive Chart Visualizer with Compounding Gradient -->
+<div class="relative w-full h-36 mt-2 flex flex-col justify-end">
+<svg class="w-full h-28 overflow-visible" preserveaspectratio="none" viewbox="0 0 340 120">
+<defs>
+<lineargradient id="wealthGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#10B981" stop-opacity="0.35"></stop>
+<stop offset="60%" stop-color="#10B981" stop-opacity="0.08"></stop>
+<stop offset="100%" stop-color="#10B981" stop-opacity="0"></stop>
+</lineargradient>
+<lineargradient id="lineStroke" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#34D399"></stop>
+<stop offset="65%" stop-color="#10B981"></stop>
+<stop offset="100%" stop-color="#6EE7B7"></stop>
+</lineargradient>
+<filter height="140%" id="glow" width="140%" x="-20%" y="-20%">
+<fegaussianblur result="glow" stddeviation="3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="glow" operator="over"></fecomposite>
+</filter>
+</defs>
+<!-- Horizontal Soft Guides -->
+<line stroke="rgba(255,255,255,0.06)" stroke-dasharray="3,3" x1="0" x2="340" y1="20" y2="20"></line>
+<line stroke="rgba(255,255,255,0.06)" stroke-dasharray="3,3" x1="0" x2="340" y1="65" y2="65"></line>
+<!-- Smooth Area Fill -->
+<path d="M 0,110 C 40,105 70,95 110,88 C 160,80 190,68 230,48 C 275,28 305,25 340,14 L 340,120 L 0,120 Z" fill="url(#wealthGradient)" id="chart-area"></path>
+<!-- Dynamic Sparkline Curve -->
+<path d="M 0,110 C 40,105 70,95 110,88 C 160,80 190,68 230,48 C 275,28 305,25 340,14" fill="none" filter="url(#glow)" id="chart-line" stroke="url(#lineStroke)" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Highlight Pointer at latest point -->
+<circle class="fill-growth-vibrant" cx="340" cy="14" r="4.5"></circle>
+<circle class="animate-ping" cx="340" cy="14" fill="#10B981" opacity="0.3" r="8"></circle>
+</svg>
+<!-- Dynamic Tooltip Badge -->
+<div class="absolute top-1 right-2 bg-surface-card-dark-secondary/90 backdrop-blur-md px-2.5 py-1 rounded-lg shadow-md flex items-center gap-1.5 pointer-events-none">
+<span class="w-1.5 h-1.5 rounded-full bg-growth-vibrant"></span>
+<span class="font-label-numeric-md text-label-numeric-md text-text-primary-light">All-time High</span>
+</div>
+</div>
+<!-- Segmented Timeframe Switcher -->
+<div class="flex items-center justify-between p-1 bg-surface-card-dark-secondary rounded-xl mt-1">
+<button class="timeframe-btn flex-1 py-1.5 text-center font-label-tag text-label-tag font-semibold rounded-lg text-text-muted-dark hover:text-text-primary-light transition-all" data-range="1M">1M</button>
+<button class="timeframe-btn flex-1 py-1.5 text-center font-label-tag text-label-tag font-semibold rounded-lg bg-surface-card-dark text-growth-vibrant shadow-sm transition-all" data-range="6M">6M</button>
+<button class="timeframe-btn flex-1 py-1.5 text-center font-label-tag text-label-tag font-semibold rounded-lg text-text-muted-dark hover:text-text-primary-light transition-all" data-range="1Y">1Y</button>
+<button class="timeframe-btn flex-1 py-1.5 text-center font-label-tag text-label-tag font-semibold rounded-lg text-text-muted-dark hover:text-text-primary-light transition-all" data-range="ALL">ALL</button>
+</div>
+</div>
+</section>
+<!-- Health Score & Core Diagnostic Gauge -->
+<section class="w-full rounded-xl bg-surface-card-light p-space-md shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-growth-deep text-[20px]">health_metrics</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary-dark">Financial Vitality</h2>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-growth-tint text-growth-deep font-label-tag text-label-tag font-semibold">Top 8% in Cohort</span>
+</div>
+<!-- Ring Dial & Big Score -->
+<div class="flex items-center gap-space-md bg-surface-canvas rounded-xl p-3.5">
+<div class="relative w-24 h-24 flex items-center justify-center shrink-0">
+<svg class="w-full h-full -rotate-90 transform" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#E5EEFF" stroke-width="8"></circle>
+<circle class="transition-all duration-1000 ease-out" cx="50" cy="50" fill="transparent" r="40" stroke="#059669" stroke-dasharray="251.2" stroke-dashoffset="40.2" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-md text-headline-md font-bold text-text-primary-dark leading-none">84</span>
+<span class="font-label-tag text-[9px] uppercase tracking-wide text-text-secondary-dark">/ 100</span>
+</div>
+</div>
+<div class="flex flex-col justify-center min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-text-primary-dark font-semibold">Excellent Health</span>
+<span class="material-symbols-outlined text-[16px] text-growth-deep" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary-dark line-clamp-2 mt-0.5">
+          Strong savings velocity and healthy emergency cushions position you well ahead of your retirement timeline.
+        </p>
+</div>
+</div>
+<!-- Diagnostics Micro Metrics Grid -->
+<div class="grid grid-cols-3 gap-2 pt-1">
+<div class="flex flex-col p-2.5 rounded-xl bg-surface-muted/70">
+<span class="font-label-tag text-label-tag uppercase text-text-secondary-dark tracking-tight">Savings Rate</span>
+<span class="font-label-numeric-md text-label-numeric-md text-text-primary-dark font-bold mt-1">32%</span>
+<span class="font-body-sm text-[11px] text-growth-deep flex items-center gap-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[12px]">arrow_upward</span> Healthy
+        </span>
+</div>
+<div class="flex flex-col p-2.5 rounded-xl bg-surface-muted/70">
+<span class="font-label-tag text-label-tag uppercase text-text-secondary-dark tracking-tight">Emergency</span>
+<span class="font-label-numeric-md text-label-numeric-md text-text-primary-dark font-bold mt-1">6.2 mos</span>
+<span class="font-body-sm text-[11px] text-growth-deep flex items-center gap-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[12px]">shield</span> Protected
+        </span>
+</div>
+<div class="flex flex-col p-2.5 rounded-xl bg-surface-muted/70">
+<span class="font-label-tag text-label-tag uppercase text-text-secondary-dark tracking-tight">Debt-to-Inc</span>
+<span class="font-label-numeric-md text-label-numeric-md text-text-primary-dark font-bold mt-1">18%</span>
+<span class="font-body-sm text-[11px] text-growth-deep flex items-center gap-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> Low Risk
+        </span>
+</div>
+</div>
+</section>
+<!-- Cash-Flow Architecture & Surplus Card -->
+<section class="w-full rounded-xl bg-surface-card-light p-space-md shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface text-[20px]">swap_horiz</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary-dark">Monthly Flow</h2>
+</div>
+<span class="font-label-tag text-label-tag text-text-secondary-dark">October 2024</span>
+</div>
+<!-- Flow In vs Out and Surplus Metric -->
+<div class="grid grid-cols-2 gap-3 p-3 bg-surface-canvas rounded-xl">
+<div class="flex flex-col">
+<span class="font-label-tag text-label-tag text-text-secondary-dark flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-growth-deep"></span> Monthly Inflow
+        </span>
+<span class="font-label-numeric-md text-label-numeric-md font-bold text-text-primary-dark mt-0.5">₹2,10,000</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-tag text-label-tag text-text-secondary-dark flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> Outflow &amp; Fixed
+        </span>
+<span class="font-label-numeric-md text-label-numeric-md font-bold text-text-primary-dark mt-0.5">₹1,42,800</span>
+</div>
+</div>
+<!-- Investable Surplus Highlight Pill -->
+<div class="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-growth-tint text-growth-deep">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">savings</span>
+<span class="font-body-sm text-body-sm font-medium">Investable Surplus</span>
+</div>
+<span class="font-label-numeric-md text-label-numeric-md font-bold">₹67,200/mo</span>
+</div>
+<!-- Stacked Allocation Track -->
+<div class="flex flex-col gap-1.5 mt-1">
+<div class="flex justify-between font-label-tag text-label-tag text-text-secondary-dark">
+<span>Capital Allocation Breakdown</span>
+<span>100% Accounted</span>
+</div>
+<!-- Multi-segmented Progress Bar -->
+<div class="w-full h-3 rounded-full overflow-hidden flex bg-surface-muted">
+<div class="h-full bg-text-primary-dark transition-all" style="width: 48%;" title="Fixed Needs 48%"></div>
+<div class="h-full bg-alert-amber transition-all" style="width: 20%;" title="Discretionary 20%"></div>
+<div class="h-full bg-growth-vibrant transition-all" style="width: 32%;" title="Wealth Building 32%"></div>
+</div>
+<!-- Segment Legends -->
+<div class="grid grid-cols-3 gap-1 pt-1 font-body-sm text-[12px] text-text-secondary-dark">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-text-primary-dark"></span>
+<span>Fixed (48%)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-alert-amber"></span>
+<span>Lifestyle (20%)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-growth-vibrant"></span>
+<span>Wealth (32%)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Proactive Intelligence (Origin Editorial Style) -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-ai-violet text-[20px]">auto_awesome</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary-dark">Smart Actions</h2>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-ai-violet/10 text-ai-violet font-label-tag text-label-tag font-semibold">2 Opportunities</span>
+</div>
+<!-- Insight Card 1: High Yield Optimization -->
+<article class="relative rounded-xl bg-gradient-to-br from-surface-card-light via-surface-card-light to-growth-tint/40 p-space-md shadow-md flex flex-col gap-space-sm overflow-hidden">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-growth-tint flex items-center justify-center text-growth-deep shrink-0">
+<span class="material-symbols-outlined text-[18px]">currency_rupee</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-body-lg text-text-primary-dark font-semibold leading-tight">High-Yield Optimization</h3>
+<span class="font-label-tag text-[10px] uppercase tracking-wide text-growth-deep font-semibold">Idle Cash Detection</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-growth-deep text-text-primary-light font-label-tag text-[10px] font-bold">
+          +₹25,200/yr
+        </span>
+</div>
+<p class="font-body-md text-body-md text-text-secondary-dark">
+        Moving <strong class="text-text-primary-dark font-semibold">₹3.5L</strong> from zero-yield savings into an ultra-low duration 7.2% Liquid Fund adds compounding interest with zero lock-in.
+      </p>
+<div class="flex items-center justify-end gap-2 pt-1">
+<button class="px-3.5 py-1.5 rounded-xl font-body-sm text-body-sm text-text-secondary-dark hover:bg-surface-muted transition-colors active:scale-95">Dismiss</button>
+<button class="px-4 py-2 rounded-xl bg-text-primary-dark text-text-primary-light font-body-sm text-body-sm font-medium hover:bg-surface-card-dark-secondary transition-all active:scale-95 flex items-center gap-1.5 shadow-sm">
+<span>Auto-Allocate</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Insight Card 2: Goal Alert Fix -->
+<article class="relative rounded-xl bg-gradient-to-br from-surface-card-light via-surface-card-light to-alert-amber-soft p-space-md shadow-md flex flex-col gap-space-sm overflow-hidden">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-alert-amber-soft flex items-center justify-center text-alert-amber shrink-0">
+<span class="material-symbols-outlined text-[18px]">villa</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-body-lg text-text-primary-dark font-semibold leading-tight">2032 Villa Goal Lagging</h3>
+<span class="font-label-tag text-[10px] uppercase tracking-wide text-alert-amber font-semibold">Pacing Alert</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-alert-amber-soft text-alert-amber font-label-tag text-[10px] font-bold">
+          -₹4,800/mo
+        </span>
+</div>
+<p class="font-body-md text-body-md text-text-secondary-dark">
+        Slight inflationary drift created an estimated ₹4,800/mo shortfall. Stepping up SIPs by 3.8% re-aligns completion for Diwali 2032.
+      </p>
+<div class="flex items-center justify-end gap-2 pt-1">
+<button class="px-3.5 py-1.5 rounded-xl font-body-sm text-body-sm text-text-secondary-dark hover:bg-surface-muted transition-colors active:scale-95">Remind later</button>
+<button class="px-4 py-2 rounded-xl bg-alert-amber text-on-secondary font-body-sm text-body-sm font-medium hover:opacity-95 transition-all active:scale-95 flex items-center gap-1 shadow-sm">
+<span>View Fix</span>
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+</button>
+</div>
+</article>
+</section>
+<!-- Priority Life Goals Mini-Carousel -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface text-[20px]">flag</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary-dark">Priority Milestones</h2>
+</div>
+<button class="font-body-sm text-body-sm text-growth-deep font-semibold flex items-center gap-0.5 hover:underline">
+        See All (5)
+        <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+<div class="flex flex-col gap-2.5">
+<!-- Goal 1: First Home -->
+<div class="p-space-md rounded-xl bg-surface-card-light shadow-sm flex flex-col gap-2.5 transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-9 h-9 rounded-xl bg-surface-canvas flex items-center justify-center text-text-primary-dark shrink-0">
+<span class="material-symbols-outlined text-[20px]">cottage</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="font-headline-sm text-body-lg text-text-primary-dark font-semibold truncate">First Home</span>
+<span class="font-body-sm text-body-sm text-text-secondary-dark">Target: 2028</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-growth-tint text-growth-deep font-label-tag text-[11px] font-semibold flex items-center gap-1 shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-growth-deep"></span> On Track
+          </span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-baseline font-body-sm text-body-sm">
+<span class="font-label-numeric-md text-label-numeric-md font-bold text-text-primary-dark">₹37,70,000 <span class="text-text-secondary-dark font-normal">/ ₹65L</span></span>
+<span class="font-label-numeric-md text-label-numeric-md font-semibold text-growth-deep">58%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-muted overflow-hidden">
+<div class="h-full bg-growth-vibrant rounded-full" style="width: 58%;"></div>
+</div>
+</div>
+</div>
+<!-- Goal 2: Child Education -->
+<div class="p-space-md rounded-xl bg-surface-card-light shadow-sm flex flex-col gap-2.5 transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-9 h-9 rounded-xl bg-surface-canvas flex items-center justify-center text-text-primary-dark shrink-0">
+<span class="material-symbols-outlined text-[20px]">school</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="font-headline-sm text-body-lg text-text-primary-dark font-semibold truncate">Child Education</span>
+<span class="font-body-sm text-body-sm text-text-secondary-dark">Target: 2036</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-alert-amber-soft text-alert-amber font-label-tag text-[11px] font-semibold shrink-0">
+            Needs ₹3,200/mo
+          </span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-baseline font-body-sm text-body-sm">
+<span class="font-label-numeric-md text-label-numeric-md font-bold text-text-primary-dark">₹13,60,000 <span class="text-text-secondary-dark font-normal">/ ₹40L</span></span>
+<span class="font-label-numeric-md text-label-numeric-md font-semibold text-alert-amber">34%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-muted overflow-hidden">
+<div class="h-full bg-alert-amber rounded-full" style="width: 34%;"></div>
+</div>
+</div>
+</div>
+<!-- Goal 3: Retire Early -->
+<div class="p-space-md rounded-xl bg-surface-card-light shadow-sm flex flex-col gap-2.5 transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-9 h-9 rounded-xl bg-surface-canvas flex items-center justify-center text-text-primary-dark shrink-0">
+<span class="material-symbols-outlined text-[20px]">beach_access</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="font-headline-sm text-body-lg text-text-primary-dark font-semibold truncate">Retire at 52</span>
+<span class="font-body-sm text-body-sm text-text-secondary-dark">Target: 2046</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-growth-tint text-growth-deep font-label-tag text-[11px] font-semibold flex items-center gap-1 shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-growth-deep"></span> Compounding Strong
+          </span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-baseline font-body-sm text-body-sm">
+<span class="font-label-numeric-md text-label-numeric-md font-bold text-text-primary-dark">₹1.25 Cr <span class="text-text-secondary-dark font-normal">/ ₹4.8 Cr</span></span>
+<span class="font-label-numeric-md text-label-numeric-md font-semibold text-growth-deep">26%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-muted overflow-hidden">
+<div class="h-full bg-growth-vibrant rounded-full" style="width: 26%;"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Checklist: What should I do next? -->
+<section class="rounded-xl bg-surface-card-light p-space-md shadow-md flex flex-col gap-space-sm mb-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-text-primary-dark text-[20px]">checklist</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary-dark">What to do next</h2>
+</div>
+<span class="font-label-tag text-label-tag font-semibold text-text-secondary-dark" id="tasks-counter">0 of 2 done</span>
+</div>
+<div class="flex flex-col gap-2.5">
+<!-- Item 1 -->
+<label class="todo-item flex items-start gap-3 p-3 rounded-xl bg-surface-canvas hover:bg-surface-muted transition-colors cursor-pointer select-none">
+<input class="todo-checkbox mt-0.5 w-5 h-5 rounded text-growth-deep focus:ring-0 focus:outline-none accent-growth-deep cursor-pointer" type="checkbox"/>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="todo-title font-body-md text-body-md text-text-primary-dark font-medium leading-snug">Review portfolio rebalancing</span>
+<span class="font-body-sm text-body-sm text-text-secondary-dark mt-0.5">Equities overweight by 4% due to recent rally. Reallocate gains to debt funds.</span>
+</div>
+</label>
+<!-- Item 2 -->
+<label class="todo-item flex items-start gap-3 p-3 rounded-xl bg-surface-canvas hover:bg-surface-muted transition-colors cursor-pointer select-none">
+<input class="todo-checkbox mt-0.5 w-5 h-5 rounded text-growth-deep focus:ring-0 focus:outline-none accent-growth-deep cursor-pointer" type="checkbox"/>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="todo-title font-body-md text-body-md text-text-primary-dark font-medium leading-snug">Tax optimization: Maximize NPS tier</span>
+<span class="font-body-sm text-body-sm text-text-secondary-dark mt-0.5">Invest remaining ₹35,000 under 80CCD(1B) by March 31 to save ₹10,920 tax.</span>
+</div>
+</label>
+</div>
+</section>
+</div>
+<script>
+  (function () {
+    // Timeframe selector simulation
+    const buttons = document.querySelectorAll('.timeframe-btn');
+    const netWorthEl = document.getElementById('net-worth-val');
+    const chartLine = document.getElementById('chart-line');
+    const chartArea = document.getElementById('chart-area');
+
+    const chartPaths = {
+      '1M': {
+        line: 'M 0,85 C 60,82 120,70 180,60 C 240,50 280,30 340,24',
+        area: 'M 0,85 C 60,82 120,70 180,60 C 240,50 280,30 340,24 L 340,120 L 0,120 Z',
+        val: '₹58,42,500'
+      },
+      '6M': {
+        line: 'M 0,110 C 40,105 70,95 110,88 C 160,80 190,68 230,48 C 275,28 305,25 340,14',
+        area: 'M 0,110 C 40,105 70,95 110,88 C 160,80 190,68 230,48 C 275,28 305,25 340,14 L 340,120 L 0,120 Z',
+        val: '₹58,42,500'
+      },
+      '1Y': {
+        line: 'M 0,115 C 80,100 130,90 200,65 C 260,45 300,32 340,8',
+        area: 'M 0,115 C 80,100 130,90 200,65 C 260,45 300,32 340,8 L 340,120 L 0,120 Z',
+        val: '₹58,42,500'
+      },
+      'ALL': {
+        line: 'M 0,118 C 90,112 150,85 210,55 C 270,30 310,20 340,5',
+        area: 'M 0,118 C 90,112 150,85 210,55 C 270,30 310,20 340,5 L 340,120 L 0,120 Z',
+        val: '₹58,42,500'
+      }
+    };
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => {
+          b.classList.remove('bg-surface-card-dark', 'text-growth-vibrant', 'shadow-sm');
+          b.classList.add('text-text-muted-dark');
+        });
+        btn.classList.add('bg-surface-card-dark', 'text-growth-vibrant', 'shadow-sm');
+        btn.classList.remove('text-text-muted-dark');
+
+        const range = btn.getAttribute('data-range');
+        if (chartPaths[range]) {
+          chartLine.setAttribute('d', chartPaths[range].line);
+          chartArea.setAttribute('d', chartPaths[range].area);
+        }
+      });
+    });
+
+    // Privacy mask toggle
+    const privacyBtn = document.getElementById('privacy-toggle');
+    const privacyIcon = document.getElementById('privacy-icon');
+    let isMasked = false;
+    privacyBtn.addEventListener('click', () => {
+      isMasked = !isMasked;
+      if (isMasked) {
+        netWorthEl.textContent = '••••••••';
+        privacyIcon.textContent = 'visibility_off';
+      } else {
+        netWorthEl.textContent = '₹58,42,500';
+        privacyIcon.textContent = 'visibility';
+      }
+    });
+
+    // Interactive Checklist dynamic strike-through & count
+    const checkboxes = document.querySelectorAll('.todo-checkbox');
+    const counterEl = document.getElementById('tasks-counter');
+
+    function updateCounter() {
+      const total = checkboxes.length;
+      const checked = document.querySelectorAll('.todo-checkbox:checked').length;
+      counterEl.textContent = checked + ' of ' + total + ' done';
+    }
+
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', (e) => {
+        const title = e.target.closest('.todo-item').querySelector('.todo-title');
+        if (e.target.checked) {
+          title.classList.add('line-through', 'text-text-secondary-dark');
+        } else {
+          title.classList.remove('line-through', 'text-text-secondary-dark');
+        }
+        updateCounter();
+      });
+    });
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-2xl shadow-[0_-2px_12px_rgba(0,0,0,0.04)]" data-active-classes="text-growth-deep"><div class="flex justify-around items-center h-16 px-space-xs"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 px-1.5 rounded-xl transition-all active:scale-95 text-growth-deep" data-path="financial-pulse" href="1_financial_pulse.html"><span class="material-symbols-outlined text-[24px]">ssid_chart</span><span class="font-label-tag text-label-tag tracking-normal mt-0.5">Home</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 px-1.5 rounded-xl text-on-surface-variant transition-all hover:text-on-surface active:scale-95" data-path="financial-goals" href="2_life_goals.html"><span class="material-symbols-outlined text-[24px]">flag</span><span class="font-label-tag text-label-tag tracking-normal mt-0.5">Goals</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 px-1.5 rounded-xl text-on-surface-variant transition-all hover:text-on-surface active:scale-95" data-path="strategic-roadmap" href="3_strategic_roadmap.html"><span class="material-symbols-outlined text-[24px]">timeline</span><span class="font-label-tag text-label-tag tracking-normal mt-0.5">Roadmap</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 px-1.5 rounded-xl text-on-surface-variant transition-all hover:text-on-surface active:scale-95" data-path="ai-advisor" href="4_ai_advisor.html"><div class="relative flex items-center justify-center"><span class="material-symbols-outlined text-[24px]">auto_awesome</span><span class="absolute -top-1 -right-2 px-1 py-0.2 rounded-full bg-ai-violet/15 text-ai-violet text-[9px] font-semibold tracking-tight">AI</span></div><span class="font-label-tag text-label-tag tracking-normal mt-0.5">Advisor</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 px-1.5 rounded-xl text-on-surface-variant transition-all hover:text-on-surface active:scale-95" data-path="money-and-net-worth" href="../index.html"><span class="material-symbols-outlined text-[24px]">account_balance_wallet</span><span class="font-label-tag text-label-tag tracking-normal mt-0.5">Money</span></a></div></nav></body></html>

@@ -1,0 +1,18 @@
+{
+  "name": "LifePlan AI Financial Planner",
+  "short_name": "LifePlan AI",
+  "description": "Comprehensive Wealth Architecture and AI Financial Planning",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a0f1d",
+  "theme_color": "#0a0f1d",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "screens/screen_1_financial_pulse.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
