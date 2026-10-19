@@ -217,6 +217,8 @@ public class MainActivity extends Activity {
         settings.setDatabaseEnabled(true);
         settings.setAllowFileAccess(true);
         settings.setAllowContentAccess(true);
+        settings.setAllowFileAccessFromFileURLs(true);
+        settings.setAllowUniversalAccessFromFileURLs(true);
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
         settings.setSupportZoom(false);
@@ -245,16 +247,23 @@ public class MainActivity extends Activity {
 }
 `;
 
-  // Create temporary assets dir with index.html
+  // Prepare full offline asset package
   const assetsTemp = path.join(ROOT, 'temp_assets');
-  if (!fs.existsSync(assetsTemp)) fs.mkdirSync(assetsTemp, { recursive: true });
-  fs.copyFileSync(path.join(ROOT, 'index.html'), path.join(assetsTemp, 'index.html'));
+  if (fs.existsSync(assetsTemp)) {
+    fs.rmSync(assetsTemp, { recursive: true, force: true });
+  }
+  fs.mkdirSync(assetsTemp, { recursive: true });
+  
+  // Use offline bundled HTML as index.html
+  fs.copyFileSync(path.join(ROOT, 'bundled_app.html'), path.join(assetsTemp, 'index.html'));
+  fs.copyFileSync(path.join(ROOT, 'tailwind.js'), path.join(assetsTemp, 'tailwind.js'));
+  fs.copyFileSync(path.join(ROOT, 'material-symbols.ttf'), path.join(assetsTemp, 'material-symbols.ttf'));
 
   await buildApk({
     buildDirName: 'android_build_prod',
     packageName: 'com.lifeplan.ai',
-    versionCode: 2,
-    versionName: '1.0.1',
+    versionCode: 3,
+    versionName: '1.0.2',
     appName: 'LifePlan AI',
     activityName: 'MainActivity',
     javaSource: mainJava,
