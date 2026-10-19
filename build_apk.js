@@ -1,12 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 const JSZip = require('jszip');
-const { PackageSigner } = require('@chromeos/android-package-signer');
+const { execSync } = require('child_process');
 
 async function buildApk() {
   console.log('--- Starting LifePlan AI APK Generation ---');
 
-  const baseApkPath = 'test_base.apk';
+  const baseApkPath = fs.existsSync('test_base.apk') ? 'test_base.apk' : 'LifePlanAI.apk';
   if (!fs.existsSync(baseApkPath)) {
     throw new Error('Base APK not found at: ' + baseApkPath);
   }
@@ -105,26 +105,40 @@ async function buildApk() {
   });
   console.log(` Unsigned APK archive size: ${(unsignedApkBuffer.length / (1024 * 1024)).toFixed(2)} MB`);
 
-  console.log('[5/5] Generating RSA keystore and signing APK with PackageSigner...');
-  const signer = new PackageSigner('lifeplan2026', 'lifeplan');
-  const dname = {
-    commonName: 'LifePlan AI',
-    organizationName: 'LifePlan Financial Intelligence',
-    organizationUnit: 'Wealth Systems',
-    countryCode: 'IN'
-  };
+  // Write unsigned APK to a temp file for uber-apk-signer
+  const unsignedApkPath = 'LifePlanAI_unsigned.apk';
+  fs.writeFileSync(unsignedApkPath, unsignedApkBuffer);
+  console.log(` Written unsigned APK to: ${unsignedApkPath}`);
 
-  const key = await signer.generateKey(dname);
-  const blob = new Blob([unsignedApkBuffer]);
-  const signedDataUrl = await signer.signPackage(blob, key, 'LifePlan AI APK Packager v1.0');
+  console.log('[5/5] Signing APK with uber-apk-signer (v1+v2+v3 + zipalign)...');
+  // uber-apk-signer produces valid v1, v2, and v3 APK signatures + zipalignment.
+  // This is required for Android 7.0+ (API 24+). 
+  // @chromeos/android-package-signer only produced v1 (JAR) signatures which causes
+  // "App not installed" on modern Android devices.
+  const javaExe = path.resolve('tools/jdk-17.0.12+7-jre/bin/java.exe');
+  const signerJar = path.resolve('tools/uber-apk-signer.jar');
+  const unsignedApkAbsPath = path.resolve(unsignedApkPath);
 
-  const base64Data = signedDataUrl.split('base64,')[1];
-  const finalApkBuffer = Buffer.from(base64Data, 'base64');
+  try {
+    const signerOutput = execSync(
+      `"${javaExe}" -jar "${signerJar}" --apks "${unsignedApkAbsPath}" --overwrite --allowResign`,
+      { encoding: 'utf8', stdio: 'pipe' }
+    );
+    console.log(signerOutput);
+  } catch (err) {
+    console.error('uber-apk-signer error:', err.stdout || err.message);
+    throw new Error('Signing failed. See above for details.');
+  }
 
+  // Read the signed APK back
+  const finalApkBuffer = fs.readFileSync(unsignedApkPath);
   const outputApkPath = 'LifePlanAI.apk';
-  fs.writeFileSync(outputApkPath, finalApkBuffer);
-  console.log(`\n Successfully generated ${outputApkPath}!`);
+  fs.copyFileSync(unsignedApkPath, outputApkPath);
+  fs.unlinkSync(unsignedApkPath); // clean up temp file
+
+  console.log(`\n ✅ Successfully generated ${outputApkPath}!`);
   console.log(` Final Signed APK Size: ${(finalApkBuffer.length / (1024 * 1024)).toFixed(2)} MB (${finalApkBuffer.length} bytes)`);
+  console.log(` Signature: v1 + v2 + v3 (compatible with all Android versions)`);
 
   // Copy to artifact directory
   const brainDir = 'C:\\Users\\HIMANSHU\\.gemini\\antigravity\\brain\\19441efb-7522-45d5-9446-8100a2c47a24';

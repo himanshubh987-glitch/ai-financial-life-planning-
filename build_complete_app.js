@@ -414,23 +414,7 @@ const masterHtml = `<!DOCTYPE html>
       width: 100%;
     }
 
-    /* Dynamic Island in mobile view */
-    .dynamic-island {
-      width: 120px;
-      height: 28px;
-      background-color: #000000;
-      border-radius: 20px;
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 60;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 10px;
-      pointer-events: none;
-    }
+
   </style>
 </head>
 
@@ -500,11 +484,7 @@ const masterHtml = `<!DOCTYPE html>
   <!-- Main App Shell Container (Phone Mockup / Responsive) -->
   <div id="appContainer" class="mobile-frame-container">
     
-    <!-- iPhone Dynamic Island (visible in mobile frame mode) -->
-    <div id="dynamicIsland" class="dynamic-island">
-      <span class="w-2.5 h-2.5 rounded-full bg-slate-900 border border-slate-800"></span>
-      <span class="w-2.5 h-2.5 rounded-full bg-slate-900 border border-slate-800"></span>
-    </div>
+
 
     <!-- App Unified Top Header Bar -->
     <header class="w-full z-40 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)] pt-safe sticky top-0 shrink-0">
@@ -740,11 +720,9 @@ const masterHtml = `<!DOCTYPE html>
     const appContainer = document.getElementById('appContainer');
     const toggleMobileBtn = document.getElementById('toggleMobileBtn');
     const toggleDesktopBtn = document.getElementById('toggleDesktopBtn');
-    const dynamicIsland = document.getElementById('dynamicIsland');
 
     toggleMobileBtn.addEventListener('click', () => {
       appContainer.className = 'mobile-frame-container';
-      dynamicIsland.style.display = 'flex';
       toggleMobileBtn.classList.add('bg-growth-deep', 'text-white');
       toggleMobileBtn.classList.remove('text-slate-400');
       toggleDesktopBtn.classList.remove('bg-growth-deep', 'text-white');
@@ -753,7 +731,6 @@ const masterHtml = `<!DOCTYPE html>
 
     toggleDesktopBtn.addEventListener('click', () => {
       appContainer.className = 'fluid-mode-container';
-      dynamicIsland.style.display = 'none';
       toggleDesktopBtn.classList.add('bg-growth-deep', 'text-white');
       toggleDesktopBtn.classList.remove('text-slate-400');
       toggleMobileBtn.classList.remove('bg-growth-deep', 'text-white');
